@@ -8,7 +8,7 @@ if mycon.is_connected() == False:
 cursor = mycon.cursor()
 
 def searchcandidate(rollnum):
-    data= cursor.execute("select * from nta where rollno=", rollnum)
+    data= cursor.execute("select * from nta where 'rollno' =", rollnum)
     print("data of student", data)
 
 
