@@ -2,29 +2,20 @@ import mysql.connector as sqltor
 import numpy as np
 import cv2 as cv
 
-mycon = sqltor.connect(host="localhost",user="root",password="requirement@1729",database="registration")
+mycon = sqltor.connect(host="localhost",user="root",passwd="MyPass",database="registration")
 if mycon.is_connected() == False:
     print('Error connecting to database')
 cursor = mycon.cursor()
 
 def searchcandidate(rollnum):
-    #SQL COMMANDS
-    name = cursor.execute("the command")
-    rollno = cursor.execute("the command")
-    dob = cursor.execute("the command")
-    ans = cursor.execute("the command")
+    data= cursor.execute("select * from nta where rollno=", rollnum)
+    print("data of student", data)
 
 
-    print("Name of the student: ",name)
-    print("Roll Number: ",rollno)
-    print("Date of Birth: ",dob)
-    print("Answers: ",ans)
-
-
-    choice = int(input("Do you wish to open the video recording of the exam hall ? (1.Yes/2. No)")
+    choice = int(input("Do you wish to open the video recording of the exam hall ? (1.Yes/2. No"))
     if choice == 1:
         cursor.execute("video link stuff")
-        cap = cv.VideoCapture('') #FILE NAME / SOURCE FROM CURSOR
+        cap = cv.VideoCapture('')#FILE NAME / SOURCE FROM CURSOR
         while cap.isOpened():
             ret, frame = cap.read()
             # if frame is read correctly ret is True
