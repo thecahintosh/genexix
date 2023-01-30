@@ -14,7 +14,6 @@ def searchcandidate(rollnum):
 
     choice = int(input("Do you wish to open the video recording of the exam hall ? (1.Yes/2. No"))
     if choice == 1:
-        cursor.execute("video link stuff")
         cap = cv.VideoCapture('')#FILE NAME / SOURCE FROM CURSOR
         while cap.isOpened():
             ret, frame = cap.read()
